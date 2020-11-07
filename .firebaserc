@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "phonebook-92619": {
+      "hosting": {
+        "phonebook": [
+          "phonebook-92619"
+        ]
+      }
+    }
+  }
+}
