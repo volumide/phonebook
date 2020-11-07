@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase:  {
-   apiKey: "AIzaSyBr1b5w9kDYAY9juoLiijuCCut3ZsqmeoU",
+    apiKey: "AIzaSyBr1b5w9kDYAY9juoLiijuCCut3ZsqmeoU",
     authDomain: "bmicalculator-914a6.firebaseapp.com",
     databaseURL: "https://bmicalculator-914a6.firebaseio.com",
     projectId: "bmicalculator-914a6",

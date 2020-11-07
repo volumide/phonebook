@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!edit">
 	<div class="row">
 		<h3>
 			Phone Book
@@ -6,17 +6,59 @@
 		<form action="">
 			<div class="form-group">
 				<label for="name">Name</label>
-				<input type="text" class="form-control rounded-0" name="name" id="name" autocomplete="name">
+				<input type="text" class="form-control rounded-0" name="name" id="name" autocomplete="name" [(ngModel)]="contact.name">
 			</div>
 			<div class="form-group">
 				<label for="name">Phone Number</label>
-				<input type="number" class="form-control rounded-0" name="phone" id="phone">
+				<input type="number" class="form-control rounded-0" name="phone" id="phone" [(ngModel)]="contact.phone">
 			</div>
 			<div class="form-group">
-				<button type="button" name="" id="" class="btn btn-success  btn-block rounded-0">
-					Save
+				<button type="button" name="" id="" class="btn btn-success  btn-block rounded-0" (click) = "saveContact()">
+					Save Contact
 				</button>
 			</div>
 		</form>
+
+	</div>
+	<div class="row">
+		<h3>Contact Lists</h3>
+		<div class="contact-list">
+			<ul>
+				<li *ngFor="let contact of allContact | async">
+					{{contact.name}}
+					<br>
+					{{contact.phone}} <br>
+					<button (click)= "deleteContact(contact.id)">Delete</button>
+					<button (click)= "editButton(contact.id)">Update</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container edit"  *ngIf="edit">
+	<div class="row">
+		<h3>
+			Update Contact
+		</h3>
+		<form action="">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control rounded-0" name="name" id="name" autocomplete="name" [(ngModel)]="contact.name">
+			</div>
+			<div class="form-group">
+				<label for="name">Phone Number</label>
+				<input type="number" class="form-control rounded-0" name="phone" id="phone" [(ngModel)]="contact.phone">
+			</div>
+			<div class="form-group">
+				<button type="button" name="" id="" class="btn btn-success  btn-block rounded-0" (click) = "updateContact()">
+					Update Contact
+				</button>
+				<button type="button" name="" id="" class="btn btn-success  btn-block rounded-0" (click) = "cancelButton()">
+					Cancel Update
+				</button>
+			</div>
+		</form>
+
 	</div>
 </div>
